@@ -1,0 +1,20 @@
+site_name: Holiday Hack Challenge 2021 Writeup
+site_url: https://hhc2021.agrohacksstuff.io
+site_author: Dan Fedele
+site_description: "Agr0 Dan's Holiday Hack Challenge Writeup for 2021!"
+repo_url: "https://github.com/hhc2021writeup"
+
+theme:
+  name: null
+  custom_dir: 'cinder'
+  hljs_languages:
+    - verilog
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - sane_lists
+  - smarty
+
+nav:
+  - Home: index.md
