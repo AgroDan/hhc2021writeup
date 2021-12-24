@@ -2,7 +2,7 @@
 
 Scanning for access points:
 
-```text
+```sh
 elf@10f3638f3d62:~$ iwlist wlan0 scanning
 wlan0     Scan completed :
           Cell 01 - Address: 02:4A:46:68:69:21
@@ -15,7 +15,7 @@ wlan0     Scan completed :
 
 Associating with AP:
 
-```text
+```sh
 elf@10f3638f3d62:~$ iwconfig wlan0 essid FROST-Nidus-Setup   
 ** New network connection to Nidus Thermostat detected! Visit http://nidus-setup:8080/ to complete setup
 (The setup is compatible with the 'curl' utility)
@@ -23,10 +23,11 @@ elf@10f3638f3d62:~$ iwconfig wlan0 essid FROST-Nidus-Setup
 
 Running curl
 
-![Temp](img/term1/img.png)
+![Temp](img/term1/img1.png)
 
 `curl http://nidus-setup:8080/apidoc`
-```
+
+```sh
 elf@10f3638f3d62:~$ curl http://nidus-setup:8080/apidoc  
 ◈──────────────────────────────────────────────────────────────────────────────◈
 
@@ -74,7 +75,7 @@ Available endpoints
 └─────────────────────────────┴────────────────────────────────┘
 ```
 
-```
+```sh
 elf@10f3638f3d62:~$ curl http://nidus-setup:8080/api/cooler
 {
   "temperature": -39.87,
