@@ -4,34 +4,56 @@ site_author: Dan Fedele
 site_description: "Agr0 Dan's Holiday Hack Challenge Writeup for 2021!"
 repo_url: "https://github.com/hhc2021writeup"
 
-theme: mkdocs
-
-# theme:
-#   name: null
-#   custom_dir: 'cinder'
-#   hljs_languages:
-#     - verilog
-#     - ruby
-#     - C
-#     - json
-#     - 
+theme:
+  name: material
+  # palette:
+  #   scheme: default
+  #   primary: red
+  #   accent: red
 
 markdown_extensions:
-  - admonition
-  - codehilite
-  - sane_lists
-  - smarty
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.keys
+
+
+# markdown_extensions:
+  # - admonition
+  # - sane_lists
+  # - smarty
+  # - codehilite
+  # - fenced_code
+ 
 
 nav:
   - Home: 'index.md'
+  # - Cast of Characters:
+
   - Objectives:
+    - 1 - Orientation: 'obj1.md'
+    - 2 - Where in the World is Caramel Santiago?: 'obj2.md'
+    - 3 - Thaw Frost Tower's Entrance: 'obj3.md'
+    - 4 - Slot Machine Investigation: 'obj4.md'
+    - 5 - Strange USB Device: 'obj5.md'
+    - 6 - Shellcode Primer: 'obj6.md'
     - 7 - Printer Exploitation: 'obj7.md'
+    - 8 - Kerberoasting on an Open Fire: 'obj8.md'
+    - 9 - Splunk!: 'obj9.md'
     - 10 - Now Hiring!: 'obj10.md'
     - 11 - Customer Complaint Analysis: 'obj11.md'
+    - 12 - Frost Tower Website Checkup: 'obj12.md'
+    - 13 - FPGA Programming: 'obj13.md'
   - Terminals:
-    - 1 - Wireless USB: 'term1.md'
-    - 2 - Exif Metadata: 'term2.md'
-    - 3 - Grepping for Gold: 'term3.md'
-    - 5 - IPv6 Sandbox: 'term5.md'
-    - 8 - HoHo...No: 'term8.md'
-    - 10 - DuckyScript: 'term10.md'
+    - Exif Metadata: 'term_em.md'
+    - Grepping for Gold: 'term_gfg.md'
+    - Logic Munchers: 'term_lm.md'
+    - IPv6 Sandbox: 'term_is.md'
+    - Santa's Holiday Hero: 'term_shh.md'
+    - HoHo...No: 'term_hhn.md'
+    - Yara Analysis: 'term_ya.md'
+    - IMDS Exploration: 'term_ie.md'
+    - Strace Ltrace Retrace: 'term_slr.md'
+    - The Elf Code: 'term_tec.md'
+    - Elevator Circuitry: 'term_ec.md'
