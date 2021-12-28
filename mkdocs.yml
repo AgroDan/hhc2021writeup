@@ -6,45 +6,88 @@ repo_url: "https://github.com/hhc2021writeup"
 
 theme:
   name: material
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - toc.integrate
   # palette:
-  #   scheme: default
-  #   primary: red
-  #   accent: red
+  #   - scheme: default
+  #     toggle:
+  #       icon: material/toggle-switch-off-outline
+  #       name: Switch to dark mode
+  #   - scheme: slate
+  #     toggle:
+  #       icon: material/toggle-switch
+  #       name: Switch to light mode
+  palette:
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to Dark Mode
+      primary: amber
+      accent: amber
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to Light Mode
+      primary: blue
+      accent: blue
+
 
 markdown_extensions:
+  - pymdownx.betterem
+  - pymdownx.details
   - pymdownx.superfences
-  - pymdownx.highlight
+  - pymdownx.highlight:
+      use_pygments: true
+      linenums: true
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.keys
-
-
-# markdown_extensions:
-  # - admonition
-  # - sane_lists
-  # - smarty
-  # - codehilite
-  # - fenced_code
- 
 
 nav:
   - Home: 'index.md'
   # - Cast of Characters:
 
   - Objectives:
-    - 1 - Orientation: 'obj1.md'
-    - 2 - Where in the World is Caramel Santiago?: 'obj2.md'
-    - 3 - Thaw Frost Tower's Entrance: 'obj3.md'
-    - 4 - Slot Machine Investigation: 'obj4.md'
-    - 5 - Strange USB Device: 'obj5.md'
-    - 6 - Shellcode Primer: 'obj6.md'
-    - 7 - Printer Exploitation: 'obj7.md'
-    - 8 - Kerberoasting on an Open Fire: 'obj8.md'
-    - 9 - Splunk!: 'obj9.md'
-    - 10 - Now Hiring!: 'obj10.md'
-    - 11 - Customer Complaint Analysis: 'obj11.md'
-    - 12 - Frost Tower Website Checkup: 'obj12.md'
-    - 13 - FPGA Programming: 'obj13.md'
+    - 1. Orientation: 'obj1.md'
+    - 2. Where in the World is Caramel Santiago?: 'obj2.md'
+    - 3. Thaw Frost Tower's Entrance: 'obj3.md'
+    - 4. Slot Machine Investigation: 'obj4.md'
+    - 5. Strange USB Device: 'obj5.md'
+    - 6. Shellcode Primer:
+      - Introduction: 'obj6-1.md'
+      - Loops: 'obj6-2.md'
+      - Getting Started: 'obj6-3.md'
+      - Returning a Value: 'obj6-4.md'
+      - System Calls: 'obj6-5.md'
+      - Calling Into the Void: 'obj6-6.md'
+      - Getting RIP: 'obj6-7.md'
+      - Hello, World!: 'obj6-8.md'
+      - Hello, World!!: 'obj6-9.md'
+      - Opening a File: 'obj6-10.md'
+      - Reading a File: 'obj6-11.md'
+    - 7. Printer Exploitation: 'obj7.md'
+    - 8. Kerberoasting on an Open Fire:
+      - Introduction: 'obj8-1.md'
+      - Initial Foothold: 'obj8-2.md'
+      - Izzat you, AD Server?: 'obj8-3.md'
+      - LDAP Enumeration: 'obj8-4.md'
+      - RPC Enumeration: 'obj8-5.md'
+      - Let's Roast: 'obj8-6.md'
+      - Crackin dat Hash: 'obj8-7.md'
+      - Yaaarrrrr! (Time to Plunder): 'obj8-8.md'
+      - Pivoting Through the Snow: 'obj8-9.md'
+      - The Conclusion: 'obj8-10.md'
+    - 9. Splunk!: 'obj9.md'
+    - 10. Now Hiring!: 'obj10.md'
+    - 11. Customer Complaint Analysis: 'obj11.md'
+    - 12. Frost Tower Website Checkup:
+      - Introduction: 'obj12-1.md'
+      - Recon Stage: 'obj12-2.md'
+      - Discovering the Bypass: 'obj12-3.md'
+      - SQL-Injecting my Way to the Top: 'obj12-4.md'
+    - 13. FPGA Programming: 'obj13.md'
   - Terminals:
     - Exif Metadata: 'term_em.md'
     - Grepping for Gold: 'term_gfg.md'

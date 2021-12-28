@@ -1,3 +1,8 @@
+---
+hide:
+  - toc
+  - navigation
+---
 # Printer Exploitation
 
 Accessing the printer gives us access to only one thing: Upload and Download the current printer firmware.
