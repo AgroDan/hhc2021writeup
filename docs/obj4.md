@@ -1,6 +1,23 @@
 # Slot Machine Investigation
 
-Intercept the request, a standard POST request to the server to send data to bet to the slots shows:
+This objective involved attempting to exploit a weakness in a slot machine. Since this slot machine was accessed through a web browser, I visited the game with Firefox:
+
+![Slots](img/obj4/img1.png)
+
+Clicking on "Play Game" brought me to a fairly themed looking slot machine interface:
+
+![The Game](img/obj4/img2.png)
+
+Reviewing the javascript showed that there was a websockets connection opened, but nothing particularly exploitable via javascript, at least as far as I could tell. This was a far cry different from the potential exploits I discovered from the [Logic Munchers Terminal Challenge](term_lm.md), so I did the next sensible thing: I fired up Burp Suite and intercepted the connection when I hit "Spin."
+
+![Burp](img/obj4/img3.png)
+
+I noticed that a POST request was sent to an `/api/v1/` endpoint, followed by a uniquely generated token, then `/spin`. Within this request, a cookie was sent with two values
+
+- `XSRF-TOKEN` which was base64 encoded, and decoded to: ![xsrf](img/obj4/img4.png)
+- `slots_session` which was also base64 encoded, and decoded to ![slots_session](img/obj4/img5.png)
+
+Sadly, those didn't really help me much, but what was interesting was the last bit -- the data sent via the POST. Here is an easier-to-read version of the HTTP POST request:
 
 ```HTTP
 POST /api/v1/cda78409-427d-42a1-b454-f6c864c972e4/spin HTTP/2
@@ -22,8 +39,15 @@ betamount=10&numline=20&cpl=0.1
 
 Note the line `betamount=10&numline=20&cpl=0.1`
 
-By changing the `numline` to equal -20, I win every time. Somehow!
+By changing the `numline` to equal -20, it seems that instead of losing money on a roll, I instead _gain_ money. Interesting!
 
-Need to find out what the `numline` parameter actually does.
+I can send the above to Burp Suite's Repeater mechanism and repeat this a bunch of times until I get my credits to...let's say over 1000:
+
+![It's over 1000!](img/obj4/img6.png)
+
+Nice. Does Jack have anything to say about that?
+
+![Ruh roh raggy](img/obj4/img7.png)
 
 Answer: `I'm going to have some bouncer trolls bounce you right out of this casino!`
+

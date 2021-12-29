@@ -24,4 +24,4 @@ But we have the script, and a base64 blob that I can manipulate. Sadly the VM do
 
 ![Temp](img/obj5/img5.png)
 
-The user is `ickymcgoop`, or Icky McGoop. That sounds like one of the trolls.
+The user is `ickymcgoop`, or Icky McGoop. That sounds like one of the trolls!

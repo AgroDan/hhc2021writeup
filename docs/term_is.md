@@ -12,12 +12,14 @@ Discovered the following IPs:
 
 
 Nmapping all of them:
+
 ![TEMP](img/term_is/img1.png)
 
 Note how I assigned them to variables first so I didn't have to type them out all the time.
 
 
 Curling all of them:
+
 ![TEMP](img/term_is/img2.png)
 
 Answer: `PieceOnEarth`

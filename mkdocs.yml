@@ -6,6 +6,8 @@ repo_url: "https://github.com/hhc2021writeup"
 
 theme:
   name: material
+  logo: img/santa.png
+  favicon: img/favicon.ico
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -38,6 +40,7 @@ extra_javascript:
 markdown_extensions:
   - pymdownx.betterem
   - pymdownx.details
+  - pymdownx.keys
   - pymdownx.superfences:
       custom_fences:
         - name: mermaid
@@ -61,37 +64,37 @@ nav:
     - 4. Slot Machine Investigation: 'obj4.md'
     - 5. Strange USB Device: 'obj5.md'
     - 6. Shellcode Primer:
-      - Introduction: 'obj6-1.md'
-      - Loops: 'obj6-2.md'
-      - Getting Started: 'obj6-3.md'
-      - Returning a Value: 'obj6-4.md'
-      - System Calls: 'obj6-5.md'
-      - Calling Into the Void: 'obj6-6.md'
-      - Getting RIP: 'obj6-7.md'
-      - Hello, World!: 'obj6-8.md'
-      - Hello, World!!: 'obj6-9.md'
-      - Opening a File: 'obj6-10.md'
-      - Reading a File: 'obj6-11.md'
+      - Introduction: 'shellcode_primer/obj6-1.md'
+      - Loops: 'shellcode_primer/obj6-2.md'
+      - Getting Started: 'shellcode_primer/obj6-3.md'
+      - Returning a Value: 'shellcode_primer/obj6-4.md'
+      - System Calls: 'shellcode_primer/obj6-5.md'
+      - Calling Into the Void: 'shellcode_primer/obj6-6.md'
+      - Getting RIP: 'shellcode_primer/obj6-7.md'
+      - Hello, World!: 'shellcode_primer/obj6-8.md'
+      - Hello, World!!: 'shellcode_primer/obj6-9.md'
+      - Opening a File: 'shellcode_primer/obj6-10.md'
+      - Reading a File: 'shellcode_primer/obj6-11.md'
     - 7. Printer Exploitation: 'obj7.md'
     - 8. Kerberoasting on an Open Fire:
-      - Introduction: 'obj8-1.md'
-      - Initial Foothold: 'obj8-2.md'
-      - Izzat you, AD Server?: 'obj8-3.md'
-      - LDAP Enumeration: 'obj8-4.md'
-      - RPC Enumeration: 'obj8-5.md'
-      - Let's Roast: 'obj8-6.md'
-      - Crackin dat Hash: 'obj8-7.md'
-      - Yaaarrrrr! (Time to Plunder): 'obj8-8.md'
-      - Pivoting Through the Snow: 'obj8-9.md'
-      - The Conclusion: 'obj8-10.md'
+      - Introduction: 'kerberoasting/obj8-1.md'
+      - Initial Foothold: 'kerberoasting/obj8-2.md'
+      - Izzat you, AD Server?: 'kerberoasting/obj8-3.md'
+      - LDAP Enumeration: 'kerberoasting/obj8-4.md'
+      - RPC Enumeration: 'kerberoasting/obj8-5.md'
+      - Let's Roast: 'kerberoasting/obj8-6.md'
+      - Crackin dat Hash: 'kerberoasting/obj8-7.md'
+      - Yaaarrrrr! (Time to Plunder): 'kerberoasting/obj8-8.md'
+      - Pivoting Through the Snow: 'kerberoasting/obj8-9.md'
+      - The Conclusion: 'kerberoasting/obj8-10.md'
     - 9. Splunk!: 'obj9.md'
     - 10. Now Hiring!: 'obj10.md'
     - 11. Customer Complaint Analysis: 'obj11.md'
     - 12. Frost Tower Website Checkup:
-      - Introduction: 'obj12-1.md'
-      - Recon Stage: 'obj12-2.md'
-      - Discovering the Bypass: 'obj12-3.md'
-      - SQL-Injecting my Way to the Top: 'obj12-4.md'
+      - Introduction: 'frost_tower/obj12-1.md'
+      - Recon Stage: 'frost_tower/obj12-2.md'
+      - Discovering the Bypass: 'frost_tower/obj12-3.md'
+      - SQL-Injecting my Way to the Top: 'frost_tower/obj12-4.md'
     - 13. FPGA Programming: 'obj13.md'
   - Terminals:
     - Exif Metadata: 'term_em.md'
@@ -103,5 +106,17 @@ nav:
     - Yara Analysis: 'term_ya.md'
     - IMDS Exploration: 'term_ie.md'
     - Strace Ltrace Retrace: 'term_slr.md'
-    - The Elf Code: 'term_tec.md'
+    - The Elf Code:
+      - How to Play: 'elf_code/term_tec_0.md'
+      - Level 0: 'elf_code/term_tec_1.md'
+      - Level 1: 'elf_code/term_tec_2.md'
+      - Level 2: 'elf_code/term_tec_3.md'
+      - Level 3: 'elf_code/term_tec_4.md'
+      - Level 4: 'elf_code/term_tec_5.md'
+      - Level 5: 'elf_code/term_tec_6.md'
+      - Level 6: 'elf_code/term_tec_7.md'
+      - Level 7: 'elf_code/term_tec_8.md'
+      - Level 8: 'elf_code/term_tec_9.md'
+      - Level 9: 'elf_code/term_tec_10.md'
+      - Level 10: 'elf_code/term_tec_11.md'
     - Elevator Circuitry: 'term_ec.md'

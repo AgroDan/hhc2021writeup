@@ -46,7 +46,7 @@ rule yara_rule_135 {
 Using `xxd` I was able to dump the hex of the program, send that to a file called `tmp`, then edited it in `vim`. Thanks to the above yara rule, I modified the text:
 
 Changed "candycane" to "dandycane", note also changed the hexdump. 0x63 became 0x64
-```xxd
+```xxd hl_lines="12"
 00001f50: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 00001f60: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 00001f70: 0000 0000 0000 0000 0000 0000 0000 0000  ................
@@ -100,9 +100,11 @@ rule yara_rule_1056 {
 ```
 
 Can't change that, the `6c 6962 632e 736f 2e36` refers to libc.so.6. Moving on...
+
 ![TEMP](img/term_ya/img1.png)
 
 This however is an arbitrary string...
+
 ![TEMP](img/term_ya/img2.png)
 
 Changing the `6772` to `6773`, which should change the second 'r' in "program" to an s. So it would read "progsam". Whatever!
@@ -153,7 +155,7 @@ rule yara_rule_1732 {
 ```
 
 .note.ABI-tag
-```xxd
+```xxd hl_lines="4"
 00003900: 696e 7465 7270 002e 6e6f 7465 2e67 6e76  interp..note.gnu
 00003910: 2e70 726f 7065 7274 7900 2e6e 6f74 652e  .property..note.
 00003920: 686e 752e 6275 696c 642d 6964 002e 6e6f  gnu.build-id..no
@@ -164,7 +166,7 @@ rule yara_rule_1732 {
 ```
 
 _IO_stdin_used
-```xxd
+```xxd hl_lines="3"
 00003820: 696f 6e00 5f5f 676d 6f6e 5f73 7461 7274  ion.__gmon_start
 00003830: 5f5f 005f 5f64 736f 5f68 616e 646c 6500  __.__dso_handle.
 00003840: 5f4a 4f5f 7374 6469 6e5f 7573 6564 005f  _IO_stdin_used._
@@ -173,7 +175,7 @@ _IO_stdin_used
 ```
 
 completed.8060
-```xxd
+```xxd hl_lines="3-4"
 000036a0: 6769 7374 6572 5f74 6d5f 636c 6f6e 6573  gister_tm_clones
 000036b0: 005f 5f64 6f5f 676c 6f62 616c 5f64 746f  .__do_global_dto
 000036c0: 7273 5f61 7578 0063 6f6d 706c 6574 6564  rs_aux.completed
@@ -183,7 +185,7 @@ completed.8060
 ```
 
 .note.gnu.build-id
-```xxd
+```xxd hl_lines="4"
 000038f0: 7274 6162 002e 7368 7374 7274 6162 002e  rtab..shstrtab..
 00003900: 696e 7465 7270 002e 6e6f 7465 2e67 6e76  interp..note.gnu
 00003910: 2e70 726f 7065 7274 7900 2e6e 6f74 652e  .property..note.
@@ -193,7 +195,7 @@ completed.8060
 ```
 
 frame_dummy
-```xxd
+```xxd hl_lines="3-4"
 000036e0: 6c5f 6474 6f72 735f 6175 785f 6669 6e69  l_dtors_aux_fini
 000036f0: 5f61 7272 6179 5f65 6e74 7279 0066 7261  _array_entry.fra
 00003700: 6d65 5f64 756d 6d79 005f 5f66 7261 6d67  me_dummy.__frame
@@ -203,7 +205,7 @@ frame_dummy
 ```
 
 __GNU_EH_FRAME_HDR
-```xxd
+```xxd hl_lines="3-4"
 00003750: 6e69 745f 6172 7261 795f 656e 6400 5f44  nit_array_end._D
 00003760: 594e 414d 4943 005f 5f69 6e69 745f 6172  YNAMIC.__init_ar
 00003770: 7261 795f 7374 6172 7400 5f5f 474e 555f  ray_start.__GNU_
@@ -214,7 +216,7 @@ __GNU_EH_FRAME_HDR
 ```
 
 __FRAME_END__
-```xxd
+```xxd hl_lines="3"
 00003720: 795f 656e 7472 7900 7468 655f 6372 6974  y_entry.the_crit
 00003730: 6963 616c 5f65 6c66 5f61 7070 2e63 005f  ical_elf_app.c._
 00003740: 5f47 5241 4d45 5f45 4e44 5f5f 005f 5f69  _FRAME_END__.__i
@@ -225,7 +227,7 @@ __FRAME_END__
 ```
 
 .eh_frame_hdr
-```xxd
+```xxd hl_lines="3"
 00003980: 002e 706c 7400 2e70 6c74 2e67 6f74 002e  ..plt..plt.got..
 00003990: 7465 7874 002e 6669 6e69 002e 726f 6461  text..fini..roda
 000039a0: 7461 002e 6568 5f66 7261 6d65 5f68 6473  ta..eh_frame_hdr
@@ -235,7 +237,7 @@ __FRAME_END__
 ```
 
 __frame_dummy_init_array_entry
-```xxd
+```xxd hl_lines="4-6"
 000036d0: 2e38 3036 3000 5f5f 646f 5f67 6c6f 6261  .8060.__do_globa
 000036e0: 6c5f 6474 6f72 735f 6175 785f 6669 6e69  l_dtors_aux_fini
 000036f0: 5f61 7272 6179 5f65 6e74 7279 0066 7261  _array_entry.fra
@@ -248,7 +250,7 @@ __frame_dummy_init_array_entry
 
 Made a few changes, notably changed the "NotReallyAFlag" string:
 
-```xxd
+```xxd hl_lines="5-6"
 00002030: 6372 6974 6963 616c 2066 6f72 2074 6865  critical for the
 00002040: 2065 7865 6375 7469 6f6e 206f 6620 7468   execution of th
 00002050: 6973 2070 726f 6773 616d 2121 0000 0000  is program!!....
@@ -261,7 +263,7 @@ Made a few changes, notably changed the "NotReallyAFlag" string:
 ```
 
 The "Naughty string"
-```xxd
+```xxd hl_lines="4"
 00001fe0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 00001ff0: 0000 0000 0000 0000 0000 0000 0000 0000  ................
 00002000: 0100 0200 0000 0000 6461 6e64 7963 616e  ........dandycan
@@ -272,7 +274,7 @@ The "Naughty string"
 ```
 
 The "Dastardly string"
-```xxd
+```xxd hl_lines="3-4"
 00002060: 486e 6c69 6461 7948 6163 6b43 6861 6c6c  HolidayHackChall
 00002070: 656e 6765 7b4e 6f74 5265 616c 6c79 4146  enge{NotReallyAF
 00002080: 6c61 677d 0064 6173 7461 7265 6c79 2073  lag}.dastardly s
@@ -282,7 +284,7 @@ The "Dastardly string"
 ```
 
 Holly Jolly Variable
-```xxd
+```xxd hl_lines="3-5"
 00003860: 5f62 7373 5f73 7461 7274 0074 6869 735f  _bss_start.this_
 00003870: 6973 5f6f 6e65 5f6d 6572 7279 5f76 6172  is_one_merry_var
 00003880: 6900 6d61 696e 0069 7473 5f61 5f68 6f6c  i.main.its_a_hol
@@ -293,7 +295,7 @@ Holly Jolly Variable
 ```
 
 IO_stdin_used
-```xxd
+```xxd hl_lines="3"
 00004640: 676d 6f6e 5f73 7461 7274 0000 3830 5f5f  gmon_start..80__
 00004650: 005f 5f64 736f 5f68 616e 646c 6500 0000  .__dso_handle...
 00004660: 3840 5f49 4f5f 7374 6469 6e5f 7573 6565  8@_IO_stdin_used
@@ -305,7 +307,7 @@ IO_stdin_used
 ```
 
 global_dtors
-```xxd
+```xxd hl_lines="3-4"
 00003690: 0063 7274 7374 7566 662e 6300 6465 7265  .crtstuff.c.dere
 000036a0: 6769 7374 6572 5f74 6d5f 636c 6f6e 6573  gister_tm_clones
 000036b0: 005f 5f64 6f5f 676c 6f62 616c 5f64 756f  .__do_global_dto
@@ -315,7 +317,7 @@ global_dtors
 ```
 
 libc_start_main
-```xxd
+```xxd hl_lines="3-4"
 000037c0: 6572 544d 436c 6f6e 6554 6162 6c65 005f  erTMCloneTable._
 000037d0: 6564 6174 6100 6361 6e64 795f 6772 6162  edata.candy_grab
 000037e0: 6265 7200 5f5f 6c69 6263 5f73 7461 7275  ber.__libc_start
@@ -325,7 +327,7 @@ libc_start_main
 ```
 
 GLIBC 2.2.5
-```xxd
+```xxd hl_lines="3-4"
 000037d0: 6564 6174 6100 6361 6e64 795f 6772 6162  edata.candy_grab
 000037e0: 6265 7200 5f5f 6c69 6263 5f73 7461 7275  ber.__libc_start
 000037f0: 5f6d 6169 6e40 4047 4c49 4243 5f32 2e33  _main@@GLIBC_2.2
@@ -335,7 +337,7 @@ GLIBC 2.2.5
 ```
 
 note.ABI-tag
-```xxd
+```xxd hl_lines="2-3"
 00003910: 2e70 726f 7065 7274 7900 2e6e 6f74 652e  .property..note.
 00003920: 676e 752e 6275 696c 642d 6964 002e 6e6f  gnu.build-id..no
 00003930: 7466 2e41 4249 2d74 6167 002e 676e 752e  te.ABI-tag..gnu.
@@ -344,7 +346,7 @@ note.ABI-tag
 ```
 
 cxa_finalize
-```xxd
+```xxd hl_lines="3-4"
 00000440: 0b00 0000 2200 0000 0000 0000 0000 0000  ...."...........
 00000450: 0000 0000 0000 0000 006c 6962 632e 736f  .........libc.so
 00000460: 2e36 005f 5f63 7861 5f66 696e 616c 697b  .6.__cxa_finaliz
@@ -354,7 +356,7 @@ cxa_finalize
 ```
 
 eh_frame_hdr
-```xxd
+```xxd hl_lines="4"
 00003970: 002e 7265 6c61 2e64 796e 002e 696e 6974  ..rela.dyn..init
 00003980: 002e 706c 7400 2e70 6c74 2e67 6f74 002e  ..plt..plt.got..
 00003990: 7465 7874 002e 6669 6e69 002e 726f 6461  text..fini..roda
@@ -363,9 +365,8 @@ eh_frame_hdr
 000039c0: 5f61 7272 6179 002e 6669 6e69 5f61 7272  _array..fini_arr
 ```
 
-
 FRAME_END
-```xxd
+```xxd hl_lines="4"
 00003710: 5f64 756d 6d79 5f69 6e69 745f 6172 7261  _dummy_init_arra
 00003720: 795f 656e 7472 7900 7468 655f 6372 6974  y_entry.the_crit
 00003730: 6963 616c 5f65 6c66 5f61 7070 2e63 005f  ical_elf_app.c._
@@ -375,7 +376,7 @@ FRAME_END
 ```
 
 note.gnu.property
-```xxd
+```xxd hl_lines="4-5"
 000038d0: 6e61 6c69 7a65 4040 474c 4942 435f 322e  nalize@@GLIBC_2.
 000038e0: 322e 3500 002e 7379 6d74 6162 002e 7374  2.5...symtab..st
 000038f0: 7274 6162 002e 7368 7374 7274 6162 002e  rtab..shstrtab..

