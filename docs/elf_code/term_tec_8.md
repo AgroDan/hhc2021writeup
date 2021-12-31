@@ -1,9 +1,9 @@
 # Level 7 - *Up Down Loopiness*
 
-!!!+ note "Objective"
+!!! abstract "Objective"
     Navigate through the obstacles and collect the lollipop before arriving at the KringleCon entrance.
 
-???+ note "Hints"
+!!! tip "Hints"
     Using a `for` loop can reduce how many lines and/or object function calls are used. This [link](https://www.freecodecamp.org/news/the-python-guide-for-beginners/#forloops) on `for` loops may be helpful.
 
     Using `elf.moveLeft(40)` will move your elf as far as possible before hitting an obstacle or the end of the screen. Use however large a number you think you need!

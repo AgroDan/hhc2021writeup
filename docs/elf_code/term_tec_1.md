@@ -7,8 +7,8 @@ This is a freebie, as the code is already provided.
 ![Map 0](/img/term_tec/img3.png)
 
 
-!!!+ note "Challenge"
-Use no more than 22 lines of code and 8 object function calls.
+!!! abstract "Challenge"
+    Use no more than 22 lines of code and 8 object function calls.
 
 
 ```python

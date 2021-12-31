@@ -1,9 +1,9 @@
 # Level 8 - *Two Paths, Your Choice*
 
-!!!+ note "Objective"
+!!! abstract "Objective"
     Navigate past the obstacles and avoid the munchkin watching the KringleCon entrance.
 
-???+ note "Hints"
+!!! tip "Hints"
     Reduce the number of lines necessary to reach the KringleCon entrance by using a loop. This [link](https://www.freecodecamp.org/news/the-python-guide-for-beginners/#forloops) on `for` loops will be helpful.
 
     There are two paths for you to choose from. Choosing the lever takes more steps but may be easier to solve.

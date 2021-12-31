@@ -1,9 +1,9 @@
 # Level 2 - *Get moveTo'ing*
 
-???+ note "Objective"
+!!! abstract "Objective"
     Move the elf to collect the lollipops and get to the KingleCon entrance
 
-!!!+ note "Hint"
+!!! tip "Hint"
     The `elf.moveTo` function should help reduce the number of elf move function calls, if used properly.
 
 ![Map 2](/img/term_tec/img4.png)

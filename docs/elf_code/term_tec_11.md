@@ -1,9 +1,9 @@
 # Level 10 - *Munchkin Dodging Finale*
 
-!!!+ note "Objective"
+!!! abstract "Objective"
     Dodge the munchkins to get to the KringleCon entrance.
 
-???+ note "Hints"
+!!! tip "Hints"
     You want to move once each munchkin is the furthest grid coordinates aways on the x axis (which will be `6` for each munchkin). Use while loops and implement a conditional check using the `elf.position["x"]` and `munchkin.position["x"]` values to check how far away the munchkin is before using `moveTo` to the next lollipops position. When using while loops, use a small delay of `time.sleep(0.05)` to ensure the browser does not lock up.
 
 ![Map 10](/img/term_tec/img12.png)

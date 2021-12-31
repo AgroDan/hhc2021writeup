@@ -2,10 +2,10 @@
 
 This challenge looks [vaguely familiar...](https://hhc2020.agrohacksstuff.io/#kiosk10/#stage-7-yeeter-swirl)
 
-!!!+ note "Objective"
+!!! abstract "Objective"
     Follow the swirl being careful not to step on any traps (or get yeeted off the map). **Note:** The `elf.moveTo(object)` function has been disabled for this challenge.
 
-???+ note "Hint"
+!!! tip "Hint"
     Use loops and an incrementing count to take the exact number of steps. Some sample code has been started for you but needs to be fixed/finished.
 
 ![Map 9](/img/term_tec/img11.png)
@@ -36,7 +36,7 @@ for i, move in enumerate(moves):
 
 ```
 
-!!!+ note "The Munchkin's challenge"
+!!! abstract "The Munchkin's challenge"
     `munchkin.ask()` will not be used for my challenge. Instead, create a function that will accept one argument.
 
     For example:

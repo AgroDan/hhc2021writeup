@@ -1,9 +1,9 @@
 # Level 4 - *Data Types*
 
-!!!+ note "Objective"
+!!! abstract "Objective"
     Pull ALL of the levers by submitting the requested data for each using `lever.pull(data)` to disable the Yeeter trap at the KringleCon entrance.
 
-???+ note "Hints"
+!!! tip "Hints"
     Move the elf to the lever. Get the lever data `lever.data()` and perform the appropriate action to the data. Submit the modified data using `lever.pull(modified_data)`.
 
     This level requires you to check and convert variable data types (bool, int, str, float, list, dict, etc.) This [link](https://www.freecodecamp.org/news/the-python-guide-for-beginners/#types) should prove useful. Some data type examples include:

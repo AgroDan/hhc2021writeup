@@ -1,9 +1,9 @@
 # Level 6 - *Types and Conditionals*
 
-!!!+ note "Objective"
+!!! abstract "Objective"
     Move the elf to the lever. Get the lever data `lever.data()` and perform the appropriate action to the data. Submit the modified data using `lever.pull(modified_data)`.
 
-???+ note "Hints"
+!!! tip "Hints"
     This level requires the use of operators to compare and modify data. This [link](https://www.freecodecamp.org/news/the-python-guide-for-beginners/#operators) on operators should help.  
   
     Data types will also need to be checked using conditionals in `if`, `elif`, `else` statements. This [link](https://www.freecodecamp.org/news/the-python-guide-for-beginners/#operators) on conditionals should help.  
@@ -17,7 +17,7 @@
  
  ![Map 6](/img/term_tec/img8.png)
  
- !!!+ note "Lever Objective"
+ !!! abstract "Lever Objective"
     Calling `lever.data()` will return a boolean, a number, a list of integers, a string, or a dict with `"a"` and an integer to you. For a boolean, return the inverse. For a number, return double the number. For a list of integers, return that list with each integer incremented by 1. For a string, return the string concatenated with itself. For a dict, return the dict with `a`'s value + 1. Submit this response using `lever.pull(conditional_answer)` .
 
     **Note**  
