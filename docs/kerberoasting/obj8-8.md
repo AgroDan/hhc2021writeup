@@ -5,8 +5,9 @@ Now that I had a new set of credentials (`elf_svc:Snow2021!`), it was time to se
 ![SMB](/img/obj8-8/img1.png)
 
 I downloaded them all to the local dir with:
-`prompt off` -- To turn off the "Are you sure?" ptompt
-`mget *.*` -- Download absolutely everything
+
+- `prompt off` -- To turn off the "Are you sure?" prompt
+- `mget *.*` -- Download absolutely everything
 
 
 Now that I had the files stored locally, I could simply `grep` through everything. This was useful because now I can look for any hard-coded passwords or anything similar.

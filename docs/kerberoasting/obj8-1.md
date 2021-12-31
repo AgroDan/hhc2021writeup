@@ -13,7 +13,7 @@ Our journey starts here: [Elf University Student Registration](https://register.
 
 Before I even consider entering data, first thing I'd like to do is quickly check the source of the page. So by hitting ++ctrl+u++, I can get the source code, and nothing really stands out initially...except for THIS:
 
-```html
+```html hl_lines="8-9"
             <div class="input-field col s12 center" style="text-align: center;">
               <button class="btn white black-text waves-effect z-depth-1 y-depth-1 center" type="submit" value="submit">Submit</button>
             </div>

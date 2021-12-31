@@ -70,6 +70,7 @@ markdown_extensions:
 
 nav:
   - Home: 'index.md'
+  - About Me: 'about.md'
   - Start Here:
     - Chapter I: 'start_here/obj1.md'
     - Chapter II: 'start_here/obj2.md'
@@ -85,7 +86,6 @@ nav:
     - Chapter XII: 'start_here/obj12.md'
     - Chapter XIII: 'start_here/obj13.md'
     - Epilogue: 'start_here/conclusion.md'
-  - About Me: 'about.md'
   - Narrative: 'narrative.md'
   - Objectives:
     - 1. Orientation: 'obj1.md'
@@ -149,4 +149,8 @@ nav:
       - Level 8: 'elf_code/term_tec_9.md'
       - Level 9: 'elf_code/term_tec_10.md'
       - Level 10: 'elf_code/term_tec_11.md'
-    - Elevator Circuitry: 'term_ec.md'
+    - Elevator Logic Gates Circuitry: 'term_ec.md'
+  - Bonus:
+    - Blue Team Log4Jack: 'bonus-blue.md'
+    - Red Team Log4Jack: 'bonus-red.md'
+    - Oddities: 'oddities.md'
