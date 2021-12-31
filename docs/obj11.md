@@ -1,23 +1,16 @@
 # Customer Complaint Analysis
 
-This challenge gives you a giant pcap file and you're supposed to find out the names of the 3 trolls that complained about guests in the room. Let's dive in.
+This challenge gives you a giant pcap file and you're supposed to find out the names of the 3 trolls that complained about one guest in particular. Specifically, we first need to find the interloper, the one human guest that had the audacity to complain about the trolls, and to even do so by being non-compliant! The nerve! Let's find out what makes this person so non-compliant and if we can find out what they said about the trolls.
 
 First, I see an HTTP POST request that I can click on and follow the HTTP conversation
 
-
-### THIS
-![TEMP](img/obj11/img1.png)
-
-### NOT THIS
-![TEMP](img/obj11/img2.png)
-
-![TEMP](img/obj11/img3.png)
+![Follow HTTP Stream](img/obj11/img10.png)
 
 Which shows me an HTTP session in which a troll complains, and a response from Jack as well.
 
 The Trolls complaint:
 
-```text
+```HTTP
 POST /feedback/guest_complaint.php HTTP/1.1
 Host: frost-tower.local
 User-Agent: Mozilla/5.0 (X11; CranPi; Linux arm7; rv:94.0) Gecko/20100101 FrostyFox/94.0
@@ -81,7 +74,7 @@ We have one troll, Gavk! `name=Gavk&troll_id=2354`
 
 Found another conversation in the same way:
 
-```
+```HTTP
 POST /feedback/guest_complaint.php HTTP/1.1
 Host: frost-tower.local
 User-Agent: Mozilla/5.0 (X11; CranPi; Linux arm7; rv:94.0) Gecko/20100101 FrostyFox/94.0
@@ -144,7 +137,7 @@ Another Troll: `Urgh`
 
 And yet another:
 
-```
+```HTTP
 POST /feedback/guest_complaint.php HTTP/1.1
 Host: frost-tower.local
 User-Agent: Mozilla/5.0 (X11; CranPi; Linux arm7; rv:94.0) Gecko/20100101 FrostyFox/94.0
@@ -207,7 +200,7 @@ We will replace her bed sheets with ones that are suspiciously stained.
 Another troll, `Yaqh`.
 
 Yet another
-```
+```HTTP
 POST /feedback/guest_complaint.php HTTP/1.1
 Host: frost-tower.local
 User-Agent: Mozilla/5.0 (X11; CranPi; Linux arm7; rv:94.0) Gecko/20100101 FrostyFox/94.0
@@ -227,7 +220,7 @@ name=Flud&troll_id=2083&guest_info=Very+cranky+lady+in+room+1024&description=Lad
 
 `Flud`
 
-OK, starting to get a little repetitive. I need to somehow narrow these down. The hints did mention the Evil Bit...
+OK, starting to get a little repetitive. I need to somehow narrow these down. The hints did mention the [Evil Bit](https://datatracker.ietf.org/doc/html/rfc3514)...but wireshark doesn't have a filter looking specifically for the Evil Bit, though you _can_ reference it with` ip.flags.rb`.
 
 Using this display filter: `(ip.flags.rb == 1 && http.request.method == "POST")`
 
@@ -235,13 +228,13 @@ Maybe... `Hagg`
 
 .......until it hit me like a ton of bricks. I noticed how many complaints there were when I was looking for items with the Evil Bit set to `1`. I'm looking for "non-compliant" users...so since we're dealing with Jack Frost...
 
-![TEMP](img/obj11/img4.png)
+![Evil bit = 0](img/obj11/img4.png)
 
 Look for conversations in which the Evil Bit is set to 0.
 
 And look, there's one complaint!
 
-![TEMP](img/obj11/img5.png)
+![The Complaint](img/obj11/img5.png)
 
 ```
 "name" = "Muffy VonDuchess Sebastion"
@@ -259,15 +252,14 @@ This human had an issue with the trolls who complained! And she was in Room 1024
 
 Using this search string...
 
-![TEMP](img/obj11/img6.png)
+![Searching for room 1024](img/obj11/img6.png)
 
 I found 4 entries, and one of them must be Muffy VonDuchess Sebastion! What are the other trolls?
 
-![TEMP](img/obj11/img7.png)
-![TEMP](img/obj11/img8.png)
-![TEMP](img/obj11/img9.png)
+![Yaqh](img/obj11/img7.png)
+![Flud](img/obj11/img8.png)
+![Hagg](img/obj11/img9.png)
 
-And `Flud`, `Hagg`, and `Yaqh`, in that order!
-
+And the answer to Objective 11 is `Flud`, `Hagg`, and `Yaqh`, in that order!
 
 Fun fact, I got stuck on the fact that it is `Yaqh`, not `Yagh`, as in `YaGh`. The lowercase Q and lowercase G look very similar.

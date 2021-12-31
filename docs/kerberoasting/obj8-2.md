@@ -13,7 +13,7 @@ ssh nfjhsxqtcz@grades.elfu.org -p 2222
 
 Connecting via SSH as it instructs you gives you access to a menu:
 
-```text
+```sh
 ===================================================
 =      Elf University Student Grades Portal       =
 =          (Reverts Everyday 12am EST)            =
@@ -25,7 +25,7 @@ e. Exit
 
 If I type `1` to read my current courses and grades, it refreshes the screen and displays:
 
-```text
+```sh
 0  Shortname                  Description  Grade
 ================================================
 1    NPAR101  North Pole Art Appreciation     C+

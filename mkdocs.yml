@@ -2,7 +2,8 @@ site_name: Holiday Hack Challenge 2021 Writeup
 site_url: https://hhc2021.agrohacksstuff.io
 site_author: Dan Fedele
 site_description: "Agr0 Dan's Holiday Hack Challenge Writeup for 2021!"
-repo_url: "https://github.com/hhc2021writeup"
+repo_url: "https://github.com/AgroDan/hhc2021writeup"
+copyright: Copyright &copy; 2021-2022 Dan Fedele
 
 theme:
   name: material
@@ -11,6 +12,7 @@ theme:
   features:
     - navigation.tabs
     - navigation.tabs.sticky
+    - navigation.tracking
     - toc.integrate
   palette:
     - media: "(prefers-color-scheme: dark)"
@@ -36,8 +38,21 @@ plugins:
 
 extra_javascript:
   - extra/refresh_on_toggle_dark_light.js
+  - extra/snow.js
+
+# extra_css:
+#   - extra/disable_nav.css
+
+extra:
+  social:
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/agr0dan
+    - icon: fontawesome/brands/github
+      link: https://github.com/AgroDan
+  generator: false
 
 markdown_extensions:
+  - admonition
   - pymdownx.betterem
   - pymdownx.details
   - pymdownx.keys
@@ -55,8 +70,23 @@ markdown_extensions:
 
 nav:
   - Home: 'index.md'
-  # - Cast of Characters:
-
+  - Start Here:
+    - Chapter I: 'start_here/obj1.md'
+    - Chapter II: 'start_here/obj2.md'
+    - Chapter III: 'start_here/obj3.md'
+    - Chapter IV: 'start_here/obj4.md'
+    - Chapter V: 'start_here/obj5.md'
+    - Chapter VI: 'start_here/obj6.md'
+    - Chapter VII: 'start_here/obj7.md'
+    - Chapter VIII: 'start_here/obj8.md'
+    - Chapter IX: 'start_here/obj9.md'
+    - Chapter X: 'start_here/obj10.md'
+    - Chapter XI: 'start_here/obj11.md'
+    - Chapter XII: 'start_here/obj12.md'
+    - Chapter XIII: 'start_here/obj13.md'
+    - Epilogue: 'start_here/conclusion.md'
+  - About Me: 'about.md'
+  - Narrative: 'narrative.md'
   - Objectives:
     - 1. Orientation: 'obj1.md'
     - 2. Where in the World is Caramel Santiago?: 'obj2.md'

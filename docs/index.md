@@ -7,9 +7,4 @@ Back at the North Pole again for more KringleCon shenanigans! Jack Frost has ent
 
 Come on along with me as I navigate through the challenges and objectives to uncover the nefarious ulterior motives of our most notorious villain in recent years, Jack Frost. 
 
-```python
-    import requests
-
-    r = requests.get('http://why.the.fuck.does.mkdocs.suck.today/???.html')
-    print(r.text)
-```
+[Start Here!](start.md)
