@@ -11,6 +11,9 @@ password: Anuakviba@
 ssh nfjhsxqtcz@grades.elfu.org -p 2222
 ```
 
+??? note "Continuity Disclaimer"
+    You may see me interchangeably using different randomly-generated usernames and passwords. This is because I had to log in at a later date and get screenshots or documentation on this challenge after the fact and a new username/password combination was randomly assigned in the process. Apologies for the confusion.
+
 Connecting via SSH as it instructs you gives you access to a menu:
 
 ```sh
@@ -62,6 +65,19 @@ So, to dump to a shell:
 import pty
 pty.spawn("/bin/bash")
 ```
+
+Finally, after obtaining shell access, I changed my shell to something more sensible than this python script:
+
+```sh
+nfjhsxqtcz@grades:~$ chsh
+Password: 
+Changing the login shell for nfjhsxqtcz
+Enter the new value, or press ENTER for the default
+    Login Shell [/opt/grading_system]: /bin/bash
+nfjhsxqtcz@grades:~$ 
+```
+
+Now with that out of the way, I logged out and logged back in, because with the python shell trapping my SIGINT and SIGSTOP signals it became annoying if I ran something that took so long it needed to be killed. Plus I now had the ability to `scp` files up and down, so it worked out for the best.
 
 Just for funsies, I snagged the code used to create the interactive prompt:
 
@@ -175,19 +191,11 @@ Destination     Gateway         Genmask         Flags Metric Ref    Use Iface
 172.17.0.0      0.0.0.0         255.255.0.0     U     0      0        0 eth0
 ```
 
-Based on the nmap scans, I discovered the following:
+From this point, I started to perform a host lookup scan. To accomplish this, I ran the following: `nmap -sn -oG ping-sweep 10.128.1-3.1-255`
 
-```
-Scanning for 10.128.1.0/24
-
-up:
-10.128.1.4 
-```
+And it returned:
 
 ```text
-Scanning for 10.128.2.0/24
-
-up:
 Nmap scan report for 10.128.2.3
 Host is up (0.00046s latency).
 Nmap scan report for 10.128.2.4
@@ -213,43 +221,6 @@ Host is up (0.00094s latency).
 
  << snipped in the interest of space >>
 
-Nmap scan report for 10.128.2.200
-Host is up (0.00100s latency).
-Nmap scan report for 10.128.2.201
-Host is up (0.00095s latency).
-Nmap scan report for 10.128.2.202
-Host is up (0.00088s latency).
-```
-
-```text
-Scanning for 10.128.3.0/24
-
-up:
-Nmap scan report for 10.128.3.25
-Host is up (0.00042s latency).
-Nmap scan report for 10.128.3.26
-Host is up (0.00035s latency).
-Nmap scan report for 10.128.3.27
-Host is up (0.00031s latency).
-Nmap scan report for 10.128.3.28
-Host is up (0.00061s latency).
-Nmap scan report for 10.128.3.29
-Host is up (0.00046s latency).
-Nmap scan report for 10.128.3.30
-Host is up (0.00041s latency).
-Nmap scan report for 10.128.3.31
-Host is up (0.00037s latency).
-Nmap scan report for 10.128.3.32
-Host is up (0.00033s latency).
-Nmap scan report for 10.128.3.33
-Host is up (0.00029s latency).
-Nmap scan report for 10.128.3.34
-Host is up (0.00023s latency).
-
-  << snipped in the interest of space >>
-
-Nmap scan report for 10.128.3.57
-Host is up (0.0015s latency).
 Nmap scan report for 10.128.3.58
 Host is up (0.0015s latency).
 Nmap scan report for 10.128.3.59
@@ -257,3 +228,5 @@ Host is up (0.0014s latency).
 Nmap scan report for 10.128.3.60
 Host is up (0.0013s latency).
 ```
+
+So...a bunch of hosts. I'm going to have to narrow this down some. Gotta see if there's an AD server to interrogate!

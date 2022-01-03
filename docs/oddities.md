@@ -14,11 +14,11 @@ Translated from Google Translate:
 
 "He sees you while he sleeps." I'd like to think that this is a simple lost-in-translation issue where it's _supposed_ to say "He sees you when you're sleeping," and not a much more sinister Lovecraftian warning of an ancient horror whose sole purpose is to watch you while it sleeps. But then I love HP Lovecraft so either is fun!
 
-# No 13th Floor
+## No 13th Floor
 
 Jack's tower does not have a 13th floor. This was kind of a cool discovery and I wanted to explore this a bit more, but then I realized that most hotels don't have a 13th floor anyway. I even checked for the 7 1/2th floor (in a nod to last year's Kringlecon, or Being John Malkovich, whichever), and no dice. Just a neat thing.
 
-# Jason Blanchard is the Only One to respond to Frost Fest.
+## Jason Blanchard is the Only One to respond to Frost Fest.
 
 According to Pat Tronizer...
 
@@ -48,3 +48,11 @@ That person that responded was Jason Blanchard, and his talk can be found [here]
 ![Izzat you, Jason?](img/oddities/img4.png)
 
 I imagine the reference to "Job Hunting" probably has something to do with [this talk](https://www.youtube.com/watch?v=Air1c697tjw) that he did for BHIS. Beyond that, [this tweet](https://twitter.com/BanjoCrashland/status/1448059040987291653) contains some of the same verbiage. Maybe 759, 760, 761 has to do with the amount of people that have landed new jobs since? 
+
+## Exit Through the Gift Shop
+
+Even though you enter Jack's Frost Tower casino through the same entrance you would exit to, exiting the tower always forces you to exit through Jack's SWAG gift shop.
+
+![Stuff We All (pay for)G](img/oddities/img5.png)
+
+Everything clickable points you to an online gift shop where you can obtain T-shirts and hoodies, all adorned with the likeness of Mr. Frost himself.

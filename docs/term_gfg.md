@@ -49,7 +49,7 @@ elf@0e70aef3f715:~$ egrep '(80\/|443\/|8080\/)' ./bigscan.gnmap  | wc -l
 ```
 Logic above needs a trailing slash because otherwise 80 can be part of an IP address.
 
-## Fifth question (I am a Linux GOD)
+## Fifth question (My Bash style beats your Cmd style)
 
 ```sh
 elf@6728125b0666:~$ grep "Host:" ./bigscan.gnmap | cut -f1 -d'(' | sort| uniq -c | grep -E '^ *1 ' | wc -l

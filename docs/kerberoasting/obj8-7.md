@@ -81,7 +81,7 @@ Using the "[One Rule To Rule Them All](https://github.com/NotSoSecure/password_c
 
 Instead of creating a new wordlist, I am just going to apply a password ruleset with my wordlist that I created from the above.
 
-`.\hashcat.exe -m 13100 -a 0 .\hashes\hhc2021.txt --potfile-disable -r .\rules\oneruletorulethemall.rule --force -O -w 4 --opencl-device-types 1,2 .\wordlists\hhc2021.txt`
+`.\hashcat.exe -m 13100 -a 0 .\hashes\hhc2021.txt --potfile-disable -r .\rules\oneruletorulethemall.rule --force -O -w 4 --opencl-device-types 2 .\wordlists\hhc2021.txt`
 
 aaaaand...
 

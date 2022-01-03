@@ -276,6 +276,8 @@ user:[ppzvtplkij] rid:[0x646]
 user:[yuvegmnrqn] rid:[0x647]
 ```
 
+I could easily write the above to a file using: `echo 'Anuakviba@' | rpcclient -c enumdomusers 10.128.1.53 > userlist.txt`.
+
 Used the following to take that list and turn it into just the users:
 `awk -F[ '{print $2}'' ./userlist.txt | awk -F] '{print $1}' > tmp && mv tmp userlist.txt`
 

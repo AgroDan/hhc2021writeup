@@ -32,18 +32,18 @@ First, before I go anywhere, I'm going to visit the InterRink and add that their
 
 ## New York City
 
-???+ quote "Description"
+!!! info "Description"
     The United States' largest city has it all. Not only can you ice skate in Rockefeller Center and buy crafts and food at Bryant Park, but this is where Santa himself closes the annual Thanksgiving Day parade.
 
 I can then investigate around, trying to find out everything I can.
 
-???+ quote "Clue number 1"
+!!! tip "Clue number 1"
     Their next waypoint was something like 51.219, 4.402
 
-???+ quote "Clue number 2"
+!!! tip "Clue number 2"
     They just contacted us from an address in the 81.244.0.0/14 range.
 
-???+ quote "Clue number 3"
+!!! tip "Clue number 3"
     They were dressed for 11.0°C and light drizzle conditions. Oh, I noticed they had a Doctor Who themed phone case. 
 
 
@@ -157,18 +157,18 @@ Off to Antwerp!
 
 ## Antwerp, Belgium
 
-???+ quote "Description"
+!!! info "Description"
     Where else can you celebrate Christmas with a Ferris wheel but Antwerp? Visit the markets, go ice skating, and try the glüwein or Belgian waffles and smoutebollen. 
 
 And the clues gained from investigating around...
 
-???+ quote "Clue number 1"
+!!! tip "Clue number 1"
     I think they left to check out the Défilé de Noël.
 
-???+ quote "Clue number 2"
+!!! tip "Clue number 2"
     They called me and mentioned they were connected via Rogers Wireless.
 
-???+ quote "Clue number 3"
+!!! tip "Clue number 3"
     They were dressed for -5.0°C and overcast conditions. The elf got really heated about using tabs for indents.
 
 So right off the bat we know that the elf is just plain wrong about tabs, since everyone knows tabs screw everything up. Spaces make the most sense.
@@ -189,7 +189,7 @@ Yup! Off to visit our friends up north!
 
 ## Montreal, Canada
 
-???+ quote "Description"
+!!! info "Description"
     French-Canadian city Montréal proudly hosts lovely, unique Christmas traditions. This is home to the Défilé de Noël festival, fairs, fireworks displays, and a decades-old Santa parade. You might even spot Québec City's Bonhomme de Neige.
 
 While attempting to sniff around for more clues, I discovered that I had just caught up to the elf! I had to guess which elf it was based on the clues I had gathered previously. Since I had already discovered that I was chasing Piney Sappington, I guessed it and...

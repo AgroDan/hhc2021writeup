@@ -1,5 +1,7 @@
 # Printer Exploitation
 
+The Printer Exploitation challenge can be found [here](https://printer.kringlecastle.com/).
+
 Accessing the printer gives us access to only one thing: Upload and Download the current printer firmware.
 
 ![The Printer Interface](img/obj7/img1.png)
@@ -333,3 +335,7 @@ module Printer
   end
 end
 ```
+
+## Video Walkthrough
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/SFCPnlKhzS0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
